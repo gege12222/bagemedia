@@ -1,0 +1,242 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Kezdőlap', href: '/' },
+  { label: 'Szolgáltatások', href: '/szolgaltatasok' },
+  { label: 'Projektek', href: '/projektek' },
+  { label: 'Rólam', href: '/rolam' },
+  { label: 'Kapcsolat', href: '/kapcsolat' },
+];
+---
+
+<header class="header" id="header">
+  <div class="header-inner container">
+    <a href="/" class="logo" aria-label="BageMedia – Kezdőlap">
+      <span class="logo-text">Bage<strong>Media</strong></span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      aria-label="Menü megnyitása"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+    >
+      <span class="hamburger"></span>
+    </button>
+
+    <nav id="nav-menu" class="nav" aria-label="Fő navigáció">
+      <ul class="nav-list">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={['nav-link', { active: currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) }]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    background: rgba(250, 250, 250, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+
+  .header.header-hidden {
+    transform: translateY(-100%);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .logo {
+    font-size: var(--text-xl);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .logo-text strong {
+    color: var(--color-accent);
+  }
+
+  /* Nav */
+  .nav-list {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .nav-link {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: color var(--transition);
+    padding: var(--space-xs) 0;
+    position: relative;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-accent);
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-accent);
+    border-radius: 1px;
+  }
+
+  /* Hamburger */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    z-index: 110;
+  }
+
+  .hamburger,
+  .hamburger::before,
+  .hamburger::after {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 5px;
+  }
+
+  .hamburger { top: 15px; }
+  .hamburger::before { content: ''; top: -7px; }
+  .hamburger::after { content: ''; top: 7px; }
+
+  .menu-toggle[aria-expanded="true"] .hamburger {
+    background: transparent;
+  }
+  .menu-toggle[aria-expanded="true"] .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .menu-toggle[aria-expanded="true"] .hamburger::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  @media (max-width: 767px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(280px, 80vw);
+      height: 100dvh;
+      background: var(--color-surface);
+      padding: calc(var(--header-height) + var(--space-xl)) var(--space-xl) var(--space-xl);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      box-shadow: var(--shadow-lg);
+      z-index: 105;
+    }
+
+    .nav.open {
+      transform: translateX(0);
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: var(--space-md);
+      align-items: flex-start;
+    }
+
+    .nav-link {
+      font-size: var(--text-lg);
+      padding: var(--space-sm) 0;
+    }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('header');
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('#nav-menu');
+
+  // Show header on scroll up, hide on scroll down
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  function updateHeader() {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY <= 0) {
+      // Always show at the top
+      header?.classList.remove('header-hidden');
+    } else if (currentScrollY > lastScrollY) {
+      // Scrolling down → hide
+      header?.classList.add('header-hidden');
+    } else {
+      // Scrolling up → show
+      header?.classList.remove('header-hidden');
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+
+    // Close on link click (mobile)
+    nav.querySelectorAll('.nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('open');
+      });
+    });
+  }
+</script>

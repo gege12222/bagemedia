@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Adatkezelés"
+  description="BageMedia adatkezelési tájékoztató."
+>
+  <section class="section legal-page">
+    <div class="container content-page">
+      <h1 class="section-title">Adatkezelési tájékoztató</h1>
+
+      <h2>Adatkezelő</h2>
+      <p>
+        <strong>Bába Gergely e.v.</strong><br />
+        Székhely: 2519 Piliscsév, Béke utca 145., Magyarország<br />
+        Adószám: 48261825131<br />
+        Nyilvántartási szám: 58553789<br />
+        Nyilvántartó hatóság: Nemzeti Adó- és Vámhivatal (NAV)<br />
+        E-mail: <a href="mailto:hello@bagemedia.hu">hello@bagemedia.hu</a>
+      </p>
+
+      <h2>Általános információ</h2>
+      <p>
+        A bagemedia.hu weboldal nem használ sütiket (cookie-kat) és nem gyűjt analitikai adatokat.
+        Ha e-mailben keresel meg, a megadott adataidat (pl. név, e-mail cím, az üzenet tartalma)
+        kizárólag a kapcsolatfelvétel és a megkeresésed megválaszolása céljából kezelem, és harmadik
+        félnek nem adom tovább. Az adatok kezelésének jogalapja az érintett hozzájárulása
+        (GDPR 6. cikk (1) bekezdés a) pont).
+      </p>
+
+      <h2>Az adatkezelés időtartama</h2>
+      <p>
+        A levelezés során megadott adatokat a kapcsolatfelvétel lezárultáig, illetve – ha ebből
+        együttműködés lesz – a szerződéses kapcsolat és az azzal kapcsolatos jogi kötelezettségek
+        (pl. számviteli előírások) fennállásáig kezelem.
+      </p>
+
+      <h2>Jogaid</h2>
+      <p>
+        Bármikor kérheted a megadott személyes adataid törlését, helyesbítését, kezelésük korlátozását,
+        vagy tájékoztatást kérhetsz az adatkezelésről az <a href="mailto:hello@bagemedia.hu">hello@bagemedia.hu</a> címen.
+      </p>
+
+      <h2>Jogorvoslat</h2>
+      <p>
+        Ha úgy érzed, hogy sérültek az adatvédelemhez fűződő jogaid, panaszt nyújthatsz be a Nemzeti
+        Adatvédelmi és Információszabadság Hatóságnál (NAIH):<br />
+        Cím: 1055 Budapest, Falk Miksa utca 9-11.<br />
+        Postacím: 1363 Budapest, Pf. 9.<br />
+        E-mail: ugyfelszolgalat@naih.hu<br />
+        Honlap: <a href="https://www.naih.hu" target="_blank" rel="noopener">www.naih.hu</a>
+      </p>
+
+      <p class="updated">Utoljára frissítve: 2026.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding-top: var(--space-xl);
+  }
+
+  .content-page {
+    max-width: 700px;
+  }
+
+  .content-page h2 {
+    font-size: var(--text-xl);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-page p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.8;
+  }
+
+  .content-page a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .updated {
+    margin-top: var(--space-2xl);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Rólam"
+  description="BageMedia – Bába Gergely, szoftver- és webfejlesztő."
+>
+  <section class="section page-header">
+    <div class="container content-narrow">
+      <h1 class="section-title">Rólam</h1>
+      <p class="section-subtitle">
+        Szia, Bába Gergely vagyok.
+        Az élet bármely területén szeretem azokat a megoldásokat, amelyek lerövidítik a monoton feladatokat, vagy legalább részben automatizálják őket. A fejlesztésben is ez motivál: funkció-központú, letisztult, jól használható rendszerek.
+        Szeretem beleásni magam egy problémába, megérteni a részleteket, és megtalálni a legegyszerűbb működő megoldást.
+      </p>
+    </div>
+  </section>
+
+  <section class="section rolam-body">
+    <div class="container content-narrow">
+      <div class="about-body">
+        <h2>Mivel foglalkozom</h2>
+        <p>
+            Mobilalkalmazásokat készítek iOS-re és Androidra, valamint nyilvántartó/ügyviteli rendszereket webre, Windowsra és akár mobil/tablet eszközökre, továbbá egyszerű, letisztult weboldalakat vállalkozásoknak.
+            Modern, jól bevált eszközökkel és felhőalapú megoldásokkal dolgozom, hogy a végeredmény gyors és stabil legyen, és később is könnyen bővíthető maradjon.
+        </p>
+
+        <h2>Hogyan dolgozom</h2>
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="step-marker"><span>01</span></div>
+            <div class="step-content">
+              <h3>Felmérés</h3>
+              <p>Röviden átbeszéljük a célt, problémákat, a felhasználókat és a kereteket.</p>
+            </div>
+          </div>
+          <div class="timeline-connector"><span class="arrow-down">↓</span></div>
+          <div class="timeline-step">
+            <div class="step-marker"><span>02</span></div>
+            <div class="step-content">
+              <h3>Részletek és árajánlat</h3>
+              <p>Összerakjuk a szükséges funkciókat és a működés vázát, majd ebből adok egy érthető árajánlatot. Ha lehet, kisebb lépésekre bontjuk, hogy átlátható legyen a haladás és a költség.</p>
+            </div>
+          </div>
+          <div class="timeline-connector"><span class="arrow-down">↓</span></div>
+          <div class="timeline-step">
+            <div class="step-marker"><span>03</span></div>
+            <div class="step-content">
+              <h3>Fejlesztés lépésekben</h3>
+              <p>Kisebb részekben haladunk, rendszeres egyeztetéssel. Így hamar van kézzelfogható eredmény, és menet közben könnyű finomítani.</p>
+            </div>
+          </div>
+          <div class="timeline-connector"><span class="arrow-down">↓</span></div>
+          <div class="timeline-step">
+            <div class="step-marker"><span>04</span></div>
+            <div class="step-content">
+              <h3>Élesítés & support</h3>
+              <p>A kiadás után sem tűnök el: javítások, finomhangolás, és ha kell, további bővítések, karbantartások.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container cta-content">
+      <h2 class="cta-title">Dolgozzunk együtt</h2>
+      <p class="cta-text">Ha van egy ötleted vagy projekted, keress bátran.</p>
+      <a href="/kapcsolat" class="btn btn-primary">Kapcsolat</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .rolam-body {
+    padding-top: var(--space-2xl);
+  }
+
+  .about-body h2 {
+    font-size: var(--text-2xl);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  .about-body h2:first-child {
+    margin-top: 0;
+  }
+
+  .about-body p {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+  }
+
+  /* Timeline */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  .timeline-step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    width: 100%;
+    padding: var(--space-xl);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .timeline-step:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
+  }
+
+  .step-marker {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: var(--text-sm);
+    font-weight: 800;
+    border-radius: 50%;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+
+  .timeline-step:hover .step-marker {
+    transform: scale(1.1);
+    background: #1d4ed8;
+  }
+
+  .step-content {
+    flex: 1;
+  }
+
+  .step-content h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-xs);
+  }
+
+  .step-content p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+
+  .timeline-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+  }
+
+  .arrow-down {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--color-accent);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    animation: pulse-arrow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-arrow {
+    0%, 100% { opacity: 0.4; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(3px); }
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-bg) 100%);
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .cta-title {
+    font-size: var(--text-3xl);
+  }
+
+  .cta-text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+    max-width: 480px;
+  }
+</style>

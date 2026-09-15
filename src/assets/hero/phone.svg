@@ -1,0 +1,33 @@
+<svg id="phone" viewBox="0 0 160 260" xmlns="http://www.w3.org/2000/svg">
+  
+  <g id="phone-3d">
+    
+    <g id="phone-side" transform="matrix(0.94,-0.08,0,1,32,32)">
+      <rect x="0" y="0" width="104" height="228" rx="24" fill="#171c2c"></rect>
+    </g>
+    
+    <g id="phone-front" transform="matrix(0.94,-0.08,0,1,22,27)">
+      <g id="phone-frame">
+        <rect x="0" y="0" width="104" height="228" rx="24" fill="#262b36"></rect>
+        <rect x="0" y="0" width="104" height="228" rx="24" fill="none" stroke="#171c2c" stroke-width="1.5"></rect>
+      </g>
+      <g id="phone-screen">
+        <rect x="8" y="8" width="88" height="212" rx="17" fill="#ffffff"></rect>
+        <g id="phone-screen-content">
+          <circle cx="52" cy="18" r="3" fill="#262b36"></circle>
+          <rect x="18" y="34" width="48" height="8" rx="4" fill="#2563eb"></rect>
+          <rect x="18" y="50" width="68" height="5" rx="2.5" fill="#dce4f2"></rect>
+          <rect x="18" y="60" width="56" height="5" rx="2.5" fill="#dce4f2"></rect>
+          <rect x="18" y="78" width="68" height="42" rx="8" fill="#eef1f8"></rect>
+          <rect x="18" y="128" width="32" height="32" rx="8" fill="#e8eefb"></rect>
+          <rect x="54" y="128" width="32" height="32" rx="8" fill="#eef1f8"></rect>
+          <rect x="22" y="184" width="60" height="16" rx="8" fill="#2563eb"></rect>
+          <rect x="36" y="210" width="32" height="4" rx="2" fill="#c7d0e2"></rect>
+        </g>
+      </g>
+      
+      <rect x="-3" y="52" width="3" height="16" rx="1.5" fill="#171c2c"></rect>
+      <rect x="-3" y="74" width="3" height="16" rx="1.5" fill="#171c2c"></rect>
+    </g>
+  </g>
+</svg>

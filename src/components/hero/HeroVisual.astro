@@ -1,0 +1,309 @@
+---
+import CharacterFigure from './CharacterFigure.astro';
+import laptopSvg from '../../assets/hero/laptop.svg?raw';
+import phoneSvg from '../../assets/hero/phone.svg?raw';
+import cameraSvg from '../../assets/hero/camera.svg?raw';
+import actionCameraSvg from '../../assets/hero/action-camera.svg?raw';
+import keyboardSvg from '../../assets/hero/keyboard.svg?raw';
+
+// data-depth: egér-parallax erőssége; data-spread-x/y/r: görgetésre széttartó elmozdulás (px / fok)
+---
+
+<div class="hero-visual" id="hero-visual" aria-hidden="true">
+  <div class="hv-halo"></div>
+
+  <div class="hv-item hv-character" data-depth="0.25" data-spread-y="-12">
+    <div class="hv-float hv-float-character">
+      <CharacterFigure />
+    </div>
+  </div>
+
+  <div class="hv-item hv-laptop" data-depth="0.9" data-spread-x="-34" data-spread-y="20" data-spread-r="-4">
+    <div class="hv-float hv-float-a" set:html={laptopSvg} />
+  </div>
+
+  <div class="hv-item hv-phone" data-depth="1.1" data-spread-x="30" data-spread-y="-14" data-spread-r="4">
+    <div class="hv-float hv-float-b" set:html={phoneSvg} />
+  </div>
+
+  <div class="hv-item hv-camera" data-depth="0.7" data-spread-x="-26" data-spread-y="-22" data-spread-r="-5">
+    <div class="hv-float hv-float-c" set:html={cameraSvg} />
+  </div>
+
+  <div class="hv-item hv-action" data-depth="1.3" data-spread-x="26" data-spread-y="-26" data-spread-r="6">
+    <div class="hv-float hv-float-b" set:html={actionCameraSvg} />
+  </div>
+
+  <div class="hv-item hv-keyboard" data-depth="0.5" data-spread-x="14" data-spread-y="30" data-spread-r="3">
+    <div class="hv-float hv-float-a" set:html={keyboardSvg} />
+  </div>
+</div>
+
+<style>
+  .hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    height: 560px;
+    margin-inline: auto;
+  }
+
+  .hv-halo {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    width: 78%;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.04) 55%, rgba(37, 99, 235, 0) 72%);
+    pointer-events: none;
+  }
+
+  /* .hv-item csak pozicionál (left/top/width) – a transformot a parallax script írja,
+     a belső .hv-float pedig a CSS lebegést viszi, így a kettő nem üti egymást. */
+  .hv-item {
+    position: absolute;
+    will-change: transform;
+  }
+
+  .hv-float {
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  .hv-item :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .hv-character {
+    inset: 0;
+  }
+
+  .hv-character .hv-float {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hv-character :global(svg) {
+    width: auto;
+    height: 100%;
+  }
+
+  /* A character export teljes vásznas fehér háttér-rectje kitakarná a halo-t.
+     A forrás SVG-t nem módosítjuk, csak a rect megjelenítését kapcsoljuk ki. */
+  .hv-character :global(svg > rect:first-child) {
+    display: none;
+  }
+
+  .hv-laptop {
+    left: -6%;
+    bottom: 10%;
+    width: 44%;
+  }
+
+  .hv-phone {
+    right: -1%;
+    top: 27%;
+    width: 21%;
+  }
+
+  .hv-camera {
+    left: 3%;
+    top: 7%;
+    width: 21%;
+  }
+
+  .hv-camera :global(svg) {
+    transform: rotate(-7deg);
+  }
+
+  .hv-action {
+    right: 5%;
+    top: 5%;
+    width: 14%;
+  }
+
+  .hv-action :global(svg) {
+    transform: rotate(6deg);
+  }
+
+  .hv-keyboard {
+    left: 46%;
+    bottom: -7%;
+    width: 46%;
+  }
+
+  .hv-keyboard :global(svg) {
+    transform: rotate(-3deg);
+  }
+
+  .hv-laptop :global(svg),
+  .hv-phone :global(svg),
+  .hv-camera :global(svg),
+  .hv-action :global(svg),
+  .hv-keyboard :global(svg) {
+    filter: drop-shadow(0 14px 22px rgba(23, 28, 44, 0.16));
+  }
+
+  /* Lebegő animációk – eltérő irány, amplitúdó és sebesség */
+  /* A karakter nem lebeg, hanem "lélegzik": alulról skálázódik, így a talpa stabil marad */
+  @keyframes hv-breathe {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.006); }
+  }
+
+  @keyframes hv-bob-a {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-6px, -12px); }
+  }
+
+  @keyframes hv-bob-b {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(5px, -9px); }
+  }
+
+  @keyframes hv-bob-c {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-4px, 8px); }
+  }
+
+  .hv-float-character {
+    animation-name: hv-breathe;
+    animation-duration: 4.5s;
+    transform-origin: 50% 100%;
+  }
+  .hv-laptop .hv-float { animation-name: hv-bob-a; animation-duration: 9.5s; animation-delay: -2s; }
+  .hv-phone .hv-float { animation-name: hv-bob-b; animation-duration: 7.5s; animation-delay: -4s; }
+  .hv-camera .hv-float { animation-name: hv-bob-c; animation-duration: 11s; animation-delay: -1s; }
+  .hv-action .hv-float { animation-name: hv-bob-b; animation-duration: 8.5s; animation-delay: -6s; }
+  .hv-keyboard .hv-float { animation-name: hv-bob-c; animation-duration: 12s; animation-delay: -3s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hv-float {
+      animation: none;
+    }
+  }
+
+  /* Mobil / tablet: kisebb, egyszerűbb kompozíció */
+  @media (max-width: 959px) {
+    .hero-visual {
+      max-width: 360px;
+      height: 400px;
+    }
+
+    .hv-action,
+    .hv-keyboard {
+      display: none;
+    }
+
+    .hv-laptop {
+      left: -4%;
+      bottom: 6%;
+      width: 46%;
+    }
+
+    .hv-phone {
+      right: 0;
+      top: 30%;
+      width: 22%;
+    }
+
+    .hv-camera {
+      left: 4%;
+      top: 5%;
+      width: 22%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-visual {
+      max-width: 300px;
+      height: 330px;
+    }
+  }
+</style>
+
+<script>
+  const visual = document.getElementById('hero-visual');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const desktop = window.matchMedia('(min-width: 960px) and (pointer: fine)');
+
+  if (visual) {
+    // --- Desktop: szemkövetés + egér-parallax + scroll-széttartás ---
+    if (desktop.matches && !reduced.matches) {
+      const items = Array.from(visual.querySelectorAll<HTMLElement>('[data-depth]')).map((el) => ({
+        el,
+        depth: parseFloat(el.dataset.depth ?? '0'),
+        sx: parseFloat(el.dataset.spreadX ?? '0'),
+        sy: parseFloat(el.dataset.spreadY ?? '0'),
+        sr: parseFloat(el.dataset.spreadR ?? '0'),
+      }));
+
+      const characterSvg = visual.querySelector<SVGSVGElement>('.hv-character svg');
+      // a forrás SVG-ben a jobb írisz ID-je nagy R-rel szerepel (RightIris)
+      const leftIris = document.getElementById('leftIris');
+      const rightIris = document.getElementById('rightIris') ?? document.getElementById('RightIris');
+      const heroSection = visual.closest('section') ?? visual;
+
+      // cél- és simított értékek: egér-parallax (m*) és vízszintes szemirány (ix)
+      let mx = 0, my = 0, smx = 0, smy = 0;
+      let ix = 0, six = 0;
+
+      window.addEventListener(
+        'mousemove',
+        (e) => {
+          mx = (e.clientX / window.innerWidth) * 2 - 1;
+          my = (e.clientY / window.innerHeight) * 2 - 1;
+          // a szemek csak a hero szekción belül követik a kurzort
+          const hr = heroSection.getBoundingClientRect();
+          const inHero =
+            e.clientX >= hr.left && e.clientX <= hr.right && e.clientY >= hr.top && e.clientY <= hr.bottom;
+          if (inHero && characterSvg) {
+            const r = characterSvg.getBoundingClientRect();
+            ix = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / 300));
+          } else {
+            ix = 0;
+          }
+        },
+        { passive: true }
+      );
+
+      // ha az egér elhagyja az oldalt, minden visszaáll középre
+      document.documentElement.addEventListener('mouseleave', () => {
+        mx = 0; my = 0; ix = 0;
+      });
+
+      const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+
+      const frame = () => {
+        // a hero az oldal tetején van, így a scrollY közvetlenül jó progressznek
+        const p = Math.min(1, Math.max(0, window.scrollY / 600));
+
+        smx = lerp(smx, mx, 0.06);
+        smy = lerp(smy, my, 0.06);
+        six = lerp(six, ix, 0.1);
+
+        for (const it of items) {
+          const tx = it.sx * p + smx * it.depth * 10;
+          const ty = it.sy * p + smy * it.depth * 10;
+          it.el.style.transform = `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0) rotate(${(it.sr * p).toFixed(2)}deg)`;
+        }
+
+        // mindkét írisz együtt, csak vízszintesen, max ~3 SVG px
+        if (leftIris && rightIris) {
+          const t = `translate(${(six * 3).toFixed(2)} 0)`;
+          leftIris.setAttribute('transform', t);
+          rightIris.setAttribute('transform', t);
+        }
+
+        requestAnimationFrame(frame);
+      };
+      requestAnimationFrame(frame);
+    }
+  }
+</script>

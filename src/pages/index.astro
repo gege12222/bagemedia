@@ -1,0 +1,382 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroVisual from '../components/hero/HeroVisual.astro';
+import { projects, statusColor } from '../data/projects';
+
+const services = [
+  {
+    icon: '🌐',
+    title: 'Web & App',
+    text: 'Weboldalak, alkalmazások és egyedi üzleti rendszerek.',
+  },
+  {
+    icon: '📷',
+    title: 'Fotó & Videó',
+    text: 'Modern vizuális tartalom weboldalakhoz, közösségi médiához és hirdetésekhez.',
+  },
+  {
+    icon: '📱',
+    title: 'Social Media',
+    text: 'Tartalomkészítés és közösségi média jelenlét vállalkozásoknak.',
+  },
+  {
+    icon: '🎯',
+    title: 'Online Hirdetések & AI',
+    text: 'Google, Meta és AI-alapú kampányok, valamint modernebb online jelenlét.',
+  },
+];
+
+const featured = projects.filter((p) =>
+  ['mobil-allatorvosi-erp', 'tori24', 'polequi-hu'].includes(p.slug)
+);
+---
+
+<BaseLayout
+  title="Kezdőlap"
+  description="BageMedia – Szoftver és web, ötlettől éles rendszerig. Flutter appok, üzleti rendszerek, modern weboldalak."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-glow" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="hero-tag">WEB • SZOFTVER • FOTÓ • VIDEÓ</span>
+        <h1 class="hero-title">
+          <strong class="accent">Digitális megoldások</strong> vállalkozásoknak, <strong class="accent">egy kézből</strong>.
+        </h1>
+        <p class="hero-lead">
+          Modern weboldalak, egyedi üzleti rendszerek, mobilalkalmazások, professzionális fotók és videók – a tervezéstől az üzemeltetésig.
+        </p>
+        <div class="hero-actions">
+          <a href="/projektek" class="btn btn-primary">Referenciák megtekintése</a>
+          <a href="/kapcsolat" class="btn btn-outline">Beszéljük át a projektet</a>
+        </div>
+        <p class="hero-trust">5000+ alkalmazásletöltés • működő üzleti rendszerek • több millió organikus videómegtekintés</p>
+      </div>
+
+      <HeroVisual />
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-4">
+        {services.map((s) => (
+          <div class="card pillar-card">
+            <span class="pillar-icon">{s.icon}</span>
+            <h3 class="card-title">{s.title}</h3>
+            <p class="card-text">{s.text}</p>
+          </div>
+        ))}
+      </div>
+      <div class="services-cta">
+        <a href="/szolgaltatasok" class="link-underline">Szolgáltatások</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Kiemelt projektek</h2>
+      <p class="section-subtitle">Néhány munka, amin dolgoztam – vagy éppen dolgozom.</p>
+      <div class="grid-3">
+        {featured.map((p) => (
+          <a href={`/projektek/${p.slug}`} class="card featured-card">
+            {p.coverImage ? (
+              <img src={p.coverImage} alt={p.title} class="card-cover" loading="lazy" width="860" height="400" />
+            ) : (
+              <div class="img-placeholder">{p.platforms.join(' · ')}</div>
+            )}
+            <div class="featured-meta">
+              <span class="status-badge" style={`--status-color: ${statusColor(p.status)}`}>{p.status}</span>
+              <div class="tech-tags">
+                {p.techTags.slice(0, 3).map((t) => (
+                  <span class="tech-tag">{t}</span>
+                ))}
+              </div>
+            </div>
+            <h3 class="card-title">{p.title}</h3>
+            <p class="card-text">{p.shortDescription}</p>
+          </a>
+        ))}
+      </div>
+      <div class="featured-cta">
+        <a href="/projektek" class="btn btn-outline">Összes projekt →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container cta-content">
+      <h2 class="cta-title">Van egy ötleted?</h2>
+      <p class="cta-text">Írj bátran, és beszéljük meg, hogyan tudom segíteni a projektedet.</p>
+      <a href="mailto:hello@bagemedia.hu" class="btn btn-primary">
+        hello@bagemedia.hu
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* HERO */
+  .hero {
+    padding: var(--space-3xl) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      padding: 7rem 0 var(--space-4xl);
+    }
+  }
+
+  .hero-bg-glow {
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 60%;
+    height: 70%;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.14) 0%, rgba(37, 99, 235, 0) 70%);
+    filter: blur(10px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  @media (min-width: 960px) {
+    .hero-grid {
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  /* HERO TEXT */
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    text-align: left;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.35rem 0.85rem;
+    border-radius: 100px;
+  }
+
+  .hero-title {
+    font-size: var(--text-4xl);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 3.6rem;
+    }
+  }
+
+  .hero-title .accent {
+    color: var(--color-accent);
+  }
+
+  .hero-lead {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-top: var(--space-sm);
+    width: 100%;
+  }
+
+  .hero-actions .btn-outline {
+    transition: all 0.2s ease;
+  }
+
+  .hero-actions .btn-outline:hover {
+    background: var(--color-accent-light);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .hero-trust {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-sm);
+  }
+
+  @media (max-width: 480px) {
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 959px) {
+    .hero-text {
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-lead {
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .hero-title {
+      font-size: var(--text-3xl);
+    }
+  }
+
+  /* PILLARS */
+  .pillar-icon {
+    font-size: var(--text-3xl);
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+
+  .pillar-card {
+    text-align: center;
+  }
+
+  .services-cta {
+    text-align: center;
+    margin-top: var(--space-lg);
+  }
+
+  .link-underline {
+    display: inline-block;
+    font-weight: 600;
+    font-size: var(--text-base);
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--color-border);
+    transition: color var(--transition), text-decoration-color var(--transition);
+  }
+
+  .link-underline:hover {
+    color: var(--color-accent);
+    text-decoration-color: var(--color-accent);
+  }
+
+  /* FEATURED */
+  .section-alt {
+    background: var(--color-accent-light);
+  }
+
+  .featured-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .featured-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-sm);
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    background: color-mix(in srgb, var(--status-color) 14%, transparent);
+    color: var(--status-color);
+  }
+
+  .status-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--status-color);
+  }
+
+  .tech-tags {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+  }
+
+  .tech-tag {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 100px;
+    background: var(--color-bg);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    font-weight: 500;
+  }
+
+  .featured-cta {
+    text-align: center;
+    margin-top: var(--space-2xl);
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-bg) 100%);
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .cta-title {
+    font-size: var(--text-3xl);
+  }
+
+  .cta-text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+    max-width: 480px;
+  }
+</style>

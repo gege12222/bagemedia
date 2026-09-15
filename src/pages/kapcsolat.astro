@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Kapcsolat"
+  description="Vedd fel velem a kapcsolatot! Szoftver- és webfejlesztés – írj emailt."
+>
+  <section class="section contact-section">
+    <div class="container contact-container">
+      <h1 class="contact-title">Beszéljünk.</h1>
+      <a href="mailto:hello@bagemedia.hu" class="contact-email">hello@bagemedia.hu</a>
+      <p class="contact-note">Általában 6 órán belül válaszolok.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-section {
+    min-height: calc(100vh - var(--header-height) - 120px);
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-title {
+    font-size: var(--text-4xl);
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-lg);
+  }
+
+  @media (min-width: 768px) {
+    .contact-title {
+      font-size: var(--text-5xl);
+    }
+  }
+
+  .contact-email {
+    display: inline-block;
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border: 2px solid var(--color-accent);
+    border-radius: 100px;
+    transition: all 0.25s ease;
+  }
+
+  .contact-email:hover {
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  .contact-note {
+    margin-top: var(--space-lg);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+</style>

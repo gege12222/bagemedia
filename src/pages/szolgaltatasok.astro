@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const categories = [
+  {
+    title: 'Weboldalak',
+    text: 'Bemutatkozó oldaltól a nagyobb weboldalig, amivel jól működsz online.',
+    items: [
+      'Céges weboldalak',
+      'Landing oldalak',
+      'Meglévő weboldalak megújítása',
+      'Weboldal karbantartás és üzemeltetés',
+      'Domain, tárhely és alap technikai beállítások',
+    ],
+  },
+  {
+    title: 'Egyedi szoftverek',
+    text: 'Rendszerek, amik a mindennapi munkát egyszerűsítik – papír és Excel helyett.',
+    items: [
+      'Mobil- és webalkalmazások',
+      'Egyedi CRM rendszerek – vagyis saját ügyfélkezelő szoftver',
+      'Ügyviteli és belső rendszerek – a napi munkát segítő belső szoftverek',
+      'Nyilvántartó rendszerek',
+      'Foglalási rendszerek',
+      'Automatizálások',
+    ],
+  },
+  {
+    title: 'Fotó & Videó',
+    text: 'Modern vizuális tartalom weboldalakhoz, közösségi médiához és hirdetésekhez.',
+    items: [
+      'Üzleti fotózás',
+      'Termék- és szolgáltatásfotózás',
+      'Rövid videók és social media videók',
+      'Reels / TikTok tartalmak',
+      'Weboldalakhoz készített fotó- és videóanyagok',
+      'Hirdetési kreatívok készítése',
+    ],
+  },
+  {
+    title: 'Social Media',
+    text: 'Tartalomkészítés és közösségi média jelenlét vállalkozásoknak.',
+    items: [
+      'Facebook és Instagram jelenlét kialakítása',
+      'TikTok tartalmak',
+      'Posztok és kreatívok készítése',
+      'Tartalomtervezés',
+      'Közösségi média oldalak kezelése',
+      'Rendszeres tartalomgyártás',
+    ],
+  },
+  {
+    title: 'Online Hirdetések & AI-jelenlét',
+    text: 'Google, Meta és AI-alapú kampányok, valamint modernebb online jelenlét.',
+    note: 'Abban is segítünk, hogy a vállalkozásod online tartalma és jelenléte a modern, AI-alapú keresési és ajánlási rendszerek számára is jól értelmezhető legyen.',
+    items: [
+      'Meta Ads',
+      'Google Ads',
+      'Kampányok beállítása és kezelése',
+      'Hirdetési kreatívok',
+      'Landing oldalak',
+      'Konverziókövetés és alap mérés',
+      'AI-platformokra optimalizált vállalkozói jelenlét',
+      'ChatGPT-ben és más AI-asszisztensekben való jobb megjelenés támogatása',
+      'AI keresési és ajánlási felületekre optimalizált tartalom',
+      'AI-kampányok és új típusú hirdetési lehetőségek',
+      'Weboldal és tartalom felkészítése AI-alapú keresésekre',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Szolgáltatások"
+  description="Weboldalak, egyedi szoftverek, fotó és videó, social media, online hirdetések és AI-jelenlét kisvállalkozásoknak."
+>
+  <!-- INTRO -->
+  <section class="section page-header">
+    <div class="container content-narrow">
+      <h1 class="section-title">Szolgáltatások</h1>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section categories-section">
+    <div class="container">
+      <div class="category-list">
+        {categories.map((cat) => (
+          <div class="category-block">
+            <h2 class="category-title">{cat.title}</h2>
+            <p class="category-text">{cat.text}</p>
+            {cat.note && <p class="category-note">{cat.note}</p>}
+            <ul class="category-items">
+              {cat.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container cta-content">
+      <h2 class="cta-title">Nem tudod pontosan, mire lenne szükséged?</h2>
+      <p class="cta-text">
+        Írd meg röviden, mivel foglalkozik a vállalkozásod, és megnézzük, milyen digitális megoldás lenne érdemes.
+      </p>
+      <a href="/kapcsolat" class="btn btn-primary">Beszéljünk róla</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .categories-section {
+    padding-top: var(--space-2xl);
+  }
+
+  .category-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
+  }
+
+  .category-title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .category-text {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .category-note {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+
+  .category-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.6rem var(--space-lg);
+  }
+
+  .category-items li {
+    position: relative;
+    padding-left: 1.1rem;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  .category-items li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-bg) 100%);
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .cta-title {
+    font-size: var(--text-3xl);
+  }
+
+  .cta-text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+    max-width: 480px;
+  }
+</style>

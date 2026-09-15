@@ -1,0 +1,30 @@
+<svg id="camera" viewBox="0 0 260 190" xmlns="http://www.w3.org/2000/svg">
+  <g id="camera-top">
+    <rect x="86" y="18" width="56" height="26" rx="7" fill="#171c2c"></rect>
+    <rect x="96" y="24" width="36" height="14" rx="4" fill="#262b36"></rect>
+    <rect x="40" y="32" width="180" height="18" rx="6" fill="#171c2c"></rect>
+    <circle cx="196" cy="34" r="9" fill="#262b36"></circle>
+    <circle cx="196" cy="34" r="9" fill="none" stroke="#3d4f75" stroke-width="2"></circle>
+    <circle cx="170" cy="30" r="6" fill="#2563eb"></circle>
+    <rect x="52" y="24" width="22" height="10" rx="4" fill="#262b36"></rect>
+  </g>
+  <g id="camera-body">
+    <rect x="28" y="46" width="204" height="112" rx="14" fill="#262b36"></rect>
+    <rect x="28" y="46" width="204" height="112" rx="14" fill="none" stroke="#171c2c" stroke-width="1.5"></rect>
+    
+    <path d="M28 60 C28 52 34 46 42 46 L58 46 L58 158 L42 158 C34 158 28 152 28 144 Z" fill="#171c2c"></path>
+    
+    <path d="M38 66 L48 66 M38 76 L48 76 M38 86 L48 86" stroke="#262b36" stroke-width="2.5" stroke-linecap="round"></path>
+    
+    <rect x="196" y="58" width="24" height="16" rx="4" fill="#3d4f75"></rect>
+  </g>
+  <g id="camera-lens">
+    <circle cx="130" cy="102" r="47" fill="#171c2c"></circle>
+    <circle cx="130" cy="102" r="39" fill="#3d4f75"></circle>
+    <circle cx="130" cy="102" r="39" fill="none" stroke="#2c3a59" stroke-width="2"></circle>
+    <circle cx="130" cy="102" r="28" fill="#1e2438"></circle>
+    <circle cx="130" cy="102" r="15" fill="#2c3a59"></circle>
+    <circle cx="130" cy="102" r="15" fill="none" stroke="#2563eb" stroke-width="2" opacity="0.7"></circle>
+    <path d="M116 88 A20 20 0 0 1 130 82" stroke="#5b7fd4" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"></path>
+  </g>
+</svg>

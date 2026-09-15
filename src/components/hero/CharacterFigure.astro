@@ -1,0 +1,11 @@
+---
+// Character v4 (src/assets/hero/character-v4.svg) inline beágyazva, hogy a
+// HeroVisual scriptje elérje a #leftIris / #RightIris csoportokat.
+// A forrás SVG tartalmához nem nyúlunk; csak az XML prológot vágjuk le,
+// mert az SVG HTML-dokumentumba kerül, ahol a prológ érvénytelen.
+import characterSvg from '../../assets/hero/character-v4.svg?raw';
+
+const inlineSvg = characterSvg.replace(/^\s*<\?xml[^?]*\?>\s*/, '');
+---
+
+<Fragment set:html={inlineSvg} />

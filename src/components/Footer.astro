@@ -1,0 +1,64 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="/" class="footer-logo">Bage<strong>Media</strong></a>
+    <span class="footer-sep">·</span>
+    <a href="mailto:hello@bagemedia.hu" class="footer-link">hello@bagemedia.hu</a>
+    <span class="footer-sep">·</span>
+    <p class="footer-copy">&copy; {year} BageMedia</p>
+    <span class="footer-sep">·</span>
+    <a href="/impresszum" class="footer-link">Impresszum</a>
+    <span class="footer-sep">·</span>
+    <a href="/aszf" class="footer-link">ÁSZF</a>
+    <span class="footer-sep">·</span>
+    <a href="/adatkezeles" class="footer-link">Adatkezelés</a>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-dark);
+    color: #888;
+    padding-block: var(--space-xl);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+  }
+
+  .footer-logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: var(--text-base);
+  }
+
+  .footer-logo strong {
+    color: var(--color-accent);
+  }
+
+  .footer-sep {
+    color: #444;
+  }
+
+  .footer-link {
+    color: #999;
+    transition: color var(--transition);
+  }
+
+  .footer-link:hover {
+    color: #fff;
+  }
+
+  .footer-copy {
+    color: #888;
+    margin: 0;
+  }
+</style>

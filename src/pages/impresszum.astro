@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Impresszum"
+  description="BageMedia impresszum – szolgáltatói adatok."
+>
+  <section class="section legal-page">
+    <div class="container content-page">
+      <h1 class="section-title">Impresszum</h1>
+
+      <h2>Szolgáltató adatai</h2>
+      <p>
+        Név: <strong>Bába Gergely e.v.</strong><br />
+        Székhely: 2519 Piliscsév, Béke utca 145., Magyarország<br />
+        Adószám: 48261825131<br />
+        Nyilvántartási szám: 58553789<br />
+        Nyilvántartó hatóság: Nemzeti Adó- és Vámhivatal (NAV)<br />
+        E-mail: <a href="mailto:hello@bagemedia.hu">hello@bagemedia.hu</a><br />
+        Weboldal: <a href="https://bagemedia.hu">bagemedia.hu</a>
+      </p>
+
+      <h2>Tárhelyszolgáltató</h2>
+      <p>
+        Cloudflare, Inc.<br />
+        101 Townsend St, San Francisco, CA 94107, Amerikai Egyesült Államok<br />
+        <a href="https://www.cloudflare.com" target="_blank" rel="noopener">www.cloudflare.com</a>
+      </p>
+
+      <p class="updated">Utoljára frissítve: 2026.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding-top: var(--space-xl);
+  }
+
+  .content-page {
+    max-width: 700px;
+  }
+
+  .content-page h2 {
+    font-size: var(--text-xl);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-page p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.8;
+  }
+
+  .content-page a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .updated {
+    margin-top: var(--space-2xl);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

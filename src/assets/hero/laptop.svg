@@ -1,0 +1,36 @@
+<svg id="laptop" viewBox="0 0 320 210" xmlns="http://www.w3.org/2000/svg">
+  
+  <g id="laptop-lid">
+    <g id="laptop-frame">
+      <rect x="60" y="8" width="200" height="134" rx="10" fill="#262b36"></rect>
+      <rect x="60" y="8" width="200" height="134" rx="10" fill="none" stroke="#171c2c" stroke-width="1.5"></rect>
+      <circle cx="160" cy="15" r="1.8" fill="#3d4f75"></circle>
+    </g>
+    <g id="laptop-screen">
+      <rect x="68" y="20" width="184" height="114" rx="5" fill="#ffffff"></rect>
+      <g id="laptop-screen-content">
+        <rect x="68" y="20" width="184" height="16" rx="5" fill="#eef1f8"></rect>
+        <rect x="68" y="28" width="184" height="8" fill="#eef1f8"></rect>
+        <circle cx="77" cy="28" r="2.2" fill="#2563eb"></circle>
+        <circle cx="84" cy="28" r="2.2" fill="#c7d0e2"></circle>
+        <circle cx="91" cy="28" r="2.2" fill="#c7d0e2"></circle>
+        <rect x="80" y="46" width="72" height="9" rx="4.5" fill="#2563eb"></rect>
+        <rect x="80" y="62" width="112" height="6" rx="3" fill="#dce4f2"></rect>
+        <rect x="80" y="74" width="94" height="6" rx="3" fill="#dce4f2"></rect>
+        <rect x="80" y="92" width="52" height="28" rx="6" fill="#eef1f8"></rect>
+        <rect x="140" y="92" width="52" height="28" rx="6" fill="#eef1f8"></rect>
+        <rect x="200" y="92" width="44" height="28" rx="6" fill="#e8eefb"></rect>
+      </g>
+    </g>
+  </g>
+  <g id="laptop-base">
+    
+    <rect x="60" y="142" width="200" height="8" rx="3" fill="#2c3a59"></rect>
+    
+    <path d="M60 150 L260 150 L272 168 C274 172 271 176 266 176 L54 176 C49 176 46 172 48 168 Z" fill="#3d4f75"></path>
+    
+    <path d="M138 150 L182 150 L180 156 L140 156 Z" fill="#2c3a59"></path>
+    
+    <path d="M47 169 L273 169 L272 168 C274 172 271 176 266 176 L54 176 C49 176 46 172 48 168 Z" fill="#2c3a59" opacity="0.55"></path>
+  </g>
+</svg>

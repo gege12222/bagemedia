@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="ÁSZF"
+  description="BageMedia általános szerződési feltételek."
+>
+  <section class="section legal-page">
+    <div class="container content-page">
+      <h1 class="section-title">Általános Szerződési Feltételek</h1>
+
+      <p>
+        Jelen dokumentum a Bába Gergely e.v. (a továbbiakban: Szolgáltató) által a bagemedia.hu
+        weboldalon keresztül felvett megkeresések, illetve az ezek alapján létrejövő megbízások
+        általános feltételeit tartalmazza. A weboldal nem webshop, a bagemedia.hu-n keresztül nem
+        történik online termékértékesítés vagy automatikus fizetés – az egyes megbízások mindig
+        egyedi egyeztetés alapján, a felek megállapodásával jönnek létre.
+      </p>
+
+      <h2>Szolgáltató adatai</h2>
+      <p>
+        Név: <strong>Bába Gergely e.v.</strong><br />
+        Székhely: 2519 Piliscsév, Béke utca 145., Magyarország<br />
+        Adószám: 48261825131<br />
+        Nyilvántartási szám: 58553789<br />
+        Nyilvántartó hatóság: Nemzeti Adó- és Vámhivatal (NAV)<br />
+        E-mail: <a href="mailto:hello@bagemedia.hu">hello@bagemedia.hu</a>
+      </p>
+
+      <h2>A szolgáltatások köre</h2>
+      <p>
+        A Szolgáltató elsősorban weboldal- és szoftverfejlesztési, valamint fotó-, videó-, social
+        media- és online hirdetési szolgáltatásokat nyújt vállalkozások számára. A pontos
+        szolgáltatáskört a <a href="/szolgaltatasok">Szolgáltatások</a> oldal mutatja be, a
+        konkrét feladatokat mindig az egyedi megbízás tartalmazza.
+      </p>
+
+      <h2>A megrendelés menete</h2>
+      <p>
+        A kapcsolatfelvétel a <a href="/kapcsolat">Kapcsolat</a> oldalon található e-mail címen
+        történik. Ezt követően egyeztetésre kerül a feladat, a határidő és az ár, majd a felek
+        írásban (jellemzően e-mailben) rögzítik a megállapodás részleteit. A megbízás a felek
+        egyértelmű, írásos megerősítésével jön létre.
+      </p>
+
+      <h2>Árak és fizetési feltételek</h2>
+      <p>
+        Az árak minden esetben egyedi ajánlat alapján kerülnek meghatározásra, a feladat
+        jellegétől és terjedelmétől függően. A fizetés ütemezését (pl. előleg, részletek,
+        végszámla) a felek a megbízás elején rögzítik. A Szolgáltató a teljesített munkáról
+        számlát állít ki.
+      </p>
+
+      <h2>Teljesítés</h2>
+      <p>
+        A Szolgáltató a megbízásban rögzített határidőre, elvárható szakmai gondossággal
+        teljesíti a feladatot. A teljesítéshez szükséges lehet a Megrendelő közreműködése
+        (pl. tartalom, hozzáférések, visszajelzések biztosítása) – az ebből eredő csúszásért a
+        Szolgáltató nem felel.
+      </p>
+
+      <h2>Szellemi tulajdon</h2>
+      <p>
+        A megbízás keretében elkészült és a Megrendelő által teljes egészében kifizetett munka
+        (pl. weboldal, alkalmazás, grafikai anyag) felhasználási jogai a kifizetést követően a
+        Megrendelőt illetik, eltérő írásos megállapodás hiányában. A Szolgáltató fenntartja a
+        jogot, hogy az elkészült munkákat referenciaként, portfóliójában bemutassa, kivéve, ha a
+        Megrendelő ez ellen írásban tiltakozik.
+      </p>
+
+      <h2>Felelősség</h2>
+      <p>
+        A Szolgáltató a tőle elvárható szakmai gondossággal jár el, de nem vállal felelősséget a
+        Megrendelő által biztosított adatok, tartalmak helyességéért, valamint harmadik fél
+        szolgáltatásainak (pl. tárhely, domain, külső API-k, fizetési szolgáltatók) működéséért
+        vagy elérhetőségéért.
+      </p>
+
+      <h2>Elállás, módosítás</h2>
+      <p>
+        A felek a létrejött megállapodást közös megegyezéssel, írásban módosíthatják. Amennyiben
+        a Megrendelő a megbízást a teljesítés megkezdése után mondja fel, a Szolgáltatót megilleti
+        az addig elvégzett munka arányos díjazása.
+      </p>
+
+      <h2>Panaszkezelés</h2>
+      <p>
+        Panaszaidat, észrevételeidet az <a href="mailto:hello@bagemedia.hu">hello@bagemedia.hu</a>
+        e-mail címen jelezheted, ahol törekszem a mielőbbi, közös megoldásra. Ennek eredménytelensége
+        esetén a fogyasztóvédelmi hatóság, illetve – jogvita esetén – a hatáskörrel és
+        illetékességgel rendelkező bíróság jár el.
+      </p>
+
+      <h2>Alkalmazandó jog</h2>
+      <p>
+        A jelen ÁSZF-ben, illetve az egyedi megbízásokban nem szabályozott kérdésekben a magyar
+        jog, elsősorban a Polgári Törvénykönyv rendelkezései irányadók.
+      </p>
+
+      <p class="updated">Utoljára frissítve: 2026.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding-top: var(--space-xl);
+  }
+
+  .content-page {
+    max-width: 700px;
+  }
+
+  .content-page h2 {
+    font-size: var(--text-xl);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-page p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.8;
+  }
+
+  .content-page a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .updated {
+    margin-top: var(--space-2xl);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>
