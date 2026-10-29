@@ -128,12 +128,13 @@ export const projects: Project[] = [
     title: 'CourseForge – díjugrató pályatervező app',
     shortDescription: 'Mobil app díjugrató pályák gyors, pontos megtervezéséhez, egyenesen telefonról.',
     category: 'apps',
-    status: 'Beta',
+    status: 'Live',
     platforms: ['Web', 'Android', 'iOS'],
     techTags: ['Flutter', 'Dart', 'Web'],
     coverImage: '/images/projects/courseforge.png',
     externalLinks: {
       website: 'https://courseforge.hu',
+      appStore: 'https://apps.apple.com/us/app/courseforge/id6798715396',
     },
     caseStudy: {
       summary: 'Mobil alkalmazás díjugrató pályák tervezéséhez – valós méretarányos pályarajzzal, akadályok elhelyezésével és exportálással, hozzá tartozó bemutatkozó weboldallal.',
@@ -150,7 +151,7 @@ export const projects: Project[] = [
         'Flutter (mobil)',
         'Dart',
       ],
-      results: 'Az alkalmazás jelenleg zárt béta tesztelés alatt áll, hamarosan érkezik az App Store-ba és a Google Play-re. A bemutatkozó weboldal (courseforge.hu) élesben elérhető.',
+      results: 'Az alkalmazás élesben elérhető az App Store-ban, a Google Play-es verzió hamarosan érkezik. A bemutatkozó weboldal (courseforge.hu) élesben elérhető.',
     },
   },
 
