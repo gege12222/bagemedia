@@ -130,7 +130,7 @@ export const projects: Project[] = [
     category: 'apps',
     status: 'Live',
     platforms: ['Web', 'Android', 'iOS'],
-    techTags: ['Flutter', 'Dart', 'Web'],
+    techTags: ['Flutter', 'Dart', 'Astro'],
     coverImage: '/images/projects/courseforge.png',
     externalLinks: {
       website: 'https://courseforge.hu',
@@ -150,6 +150,7 @@ export const projects: Project[] = [
       stack: [
         'Flutter (mobil)',
         'Dart',
+        'Astro, HTML, CSS (courseforge.hu weboldal)',
       ],
       results: 'Az alkalmazás élesben elérhető az App Store-ban, a Google Play-es verzió hamarosan érkezik. A bemutatkozó weboldal (courseforge.hu) élesben elérhető.',
     },

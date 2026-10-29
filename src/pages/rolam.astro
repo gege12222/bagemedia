@@ -25,42 +25,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             Mobilalkalmazásokat készítek iOS-re és Androidra, valamint nyilvántartó/ügyviteli rendszereket webre, Windowsra és akár mobil/tablet eszközökre, továbbá egyszerű, letisztult weboldalakat vállalkozásoknak.
             Modern, jól bevált eszközökkel és felhőalapú megoldásokkal dolgozom, hogy a végeredmény gyors és stabil legyen, és később is könnyen bővíthető maradjon.
         </p>
-
-        <h2>Hogyan dolgozom</h2>
-        <div class="timeline">
-          <div class="timeline-step">
-            <div class="step-marker"><span>01</span></div>
-            <div class="step-content">
-              <h3>Felmérés</h3>
-              <p>Röviden átbeszéljük a célt, problémákat, a felhasználókat és a kereteket.</p>
-            </div>
-          </div>
-          <div class="timeline-connector"><span class="arrow-down">↓</span></div>
-          <div class="timeline-step">
-            <div class="step-marker"><span>02</span></div>
-            <div class="step-content">
-              <h3>Részletek és árajánlat</h3>
-              <p>Összerakjuk a szükséges funkciókat és a működés vázát, majd ebből adok egy érthető árajánlatot. Ha lehet, kisebb lépésekre bontjuk, hogy átlátható legyen a haladás és a költség.</p>
-            </div>
-          </div>
-          <div class="timeline-connector"><span class="arrow-down">↓</span></div>
-          <div class="timeline-step">
-            <div class="step-marker"><span>03</span></div>
-            <div class="step-content">
-              <h3>Fejlesztés lépésekben</h3>
-              <p>Kisebb részekben haladunk, rendszeres egyeztetéssel. Így hamar van kézzelfogható eredmény, és menet közben könnyű finomítani.</p>
-            </div>
-          </div>
-          <div class="timeline-connector"><span class="arrow-down">↓</span></div>
-          <div class="timeline-step">
-            <div class="step-marker"><span>04</span></div>
-            <div class="step-content">
-              <h3>Élesítés & support</h3>
-              <p>A kiadás után sem tűnök el: javítások, finomhangolás, és ha kell, további bővítések, karbantartások.</p>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -94,92 +58,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-text-secondary);
     line-height: 1.8;
     margin-bottom: var(--space-md);
-  }
-
-  /* Timeline */
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: var(--space-lg);
-  }
-
-  .timeline-step {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-lg);
-    width: 100%;
-    padding: var(--space-xl);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .timeline-step:hover {
-    transform: translateY(-3px);
-    border-color: var(--color-accent);
-    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
-  }
-
-  .step-marker {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-accent);
-    color: #fff;
-    font-size: var(--text-sm);
-    font-weight: 800;
-    border-radius: 50%;
-    transition: transform 0.25s ease, background 0.25s ease;
-  }
-
-  .timeline-step:hover .step-marker {
-    transform: scale(1.1);
-    background: #1d4ed8;
-  }
-
-  .step-content {
-    flex: 1;
-  }
-
-  .step-content h3 {
-    font-size: var(--text-lg);
-    margin-bottom: var(--space-xs);
-  }
-
-  .step-content p {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    margin-bottom: 0;
-    line-height: 1.7;
-  }
-
-  .timeline-connector {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-  }
-
-  .arrow-down {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    color: var(--color-accent);
-    font-size: var(--text-lg);
-    font-weight: 700;
-    animation: pulse-arrow 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse-arrow {
-    0%, 100% { opacity: 0.4; transform: translateY(0); }
-    50% { opacity: 1; transform: translateY(3px); }
   }
 
   /* CTA */

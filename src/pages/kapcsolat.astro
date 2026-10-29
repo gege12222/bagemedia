@@ -10,6 +10,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container contact-container">
       <h1 class="contact-title">Beszéljünk.</h1>
       <a href="mailto:hello@bagemedia.hu" class="contact-email">hello@bagemedia.hu</a>
+      <a href="tel:+36703389049" class="contact-phone">+36 70 338 9049</a>
       <p class="contact-note">Általában 6 órán belül válaszolok.</p>
     </div>
   </section>
@@ -55,6 +56,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .contact-email:hover {
     background: var(--color-accent);
     color: #fff;
+  }
+
+  .contact-phone {
+    display: block;
+    margin-top: var(--space-md);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+    text-decoration-color: var(--color-border);
+    transition: color var(--transition), text-decoration-color var(--transition);
+  }
+
+  .contact-phone:hover {
+    color: var(--color-accent);
+    text-decoration-color: var(--color-accent);
   }
 
   .contact-note {
