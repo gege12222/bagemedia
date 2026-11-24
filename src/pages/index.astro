@@ -81,7 +81,7 @@ const featured = projects.filter((p) =>
       <p class="section-subtitle">Néhány munka, amin dolgoztam – vagy éppen dolgozom.</p>
       <div class="grid-3">
         {featured.map((p) => (
-          <a href={`/projektek/${p.slug}`} class="card featured-card">
+          <a href={p.pagePath ?? `/projektek/${p.slug}`} class="card featured-card">
             {p.coverImage ? (
               <img src={p.coverImage} alt={p.title} class="card-cover" loading="lazy" width="860" height="400" />
             ) : (

@@ -33,7 +33,7 @@ import {
             <h2 class="category-title">{categoryLabels[cat]}</h2>
             <div class="grid-3">
               {items.map((p) => (
-                <a href={`/projektek/${p.slug}`} class="card project-card">
+                <a href={p.pagePath ?? `/projektek/${p.slug}`} class="card project-card">
                   {p.coverImage ? (
                     <img src={p.coverImage} alt={p.title} class="card-cover" loading="lazy" width="860" height="400" />
                   ) : (

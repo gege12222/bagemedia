@@ -1,0 +1,2 @@
+# BageMedia app-ads.txt
+# TODO: Add the authorized seller line supplied by AdMob.

@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-  return projects.map((p) => ({
+  return projects.filter((p) => !p.pagePath).map((p) => ({
     params: { slug: p.slug },
     props: { project: p },
   }));

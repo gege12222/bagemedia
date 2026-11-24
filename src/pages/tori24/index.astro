@@ -1,0 +1,146 @@
+---
+import Tori24Layout from '../../layouts/Tori24Layout.astro';
+import { tori24 } from '../../data/tori24';
+
+const screens = [
+  { image: 'screen-1.webp', alt: 'A Töri24 történelmi témaköreinek listája' },
+  { image: 'screen-2.webp', alt: 'A jelenkor témaköréhez tartozó vázlatok listája' },
+  { image: 'screen-3.webp', alt: 'Feleletválasztós feladat egy történelmi ábrával' },
+  { image: 'screen-4.webp', alt: 'A teszt kiértékelése és az elért pontszám' },
+];
+---
+
+<Tori24Layout
+  title="Töri24 – történelemérettségi-felkészítő alkalmazás"
+  description="Ingyenes magyar alkalmazás közép- és emelt szintű történelemérettségihez. Témakörönkénti gyakorlókérdések és rövid vázlatok Androidra és iOS-re."
+  landing
+>
+  <section class="intro">
+    <div class="container intro-inner">
+      <img class="app-icon" src="/images/tori24/icon.webp" alt="" width="256" height="256" fetchpriority="high" />
+      <div>
+        <h1 class="section-title">Töri24 – Készülj magabiztosan a történelemérettségire!</h1>
+        <p class="section-subtitle">Gyakorolj a telefonodon, nézd át a tételek rövid vázlatait, és nézd meg, mely témákat érdemes még átismételned. A Töri24 közép- és emelt szintű felkészüléshez is használható.</p>
+        <div class="store-links">
+          {tori24.stores.map(({ name, url }, index) => url ? (
+            <a class:list={['btn', index === 0 ? 'btn-primary' : 'btn-outline']} href={url}>{name}</a>
+          ) : <span>{name} – a letöltési link konfigurálásra vár.</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section app-section">
+    <div class="container">
+      <h2 class="section-title">Gyakorlás közép- és emelt szinten</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Gyakorlókérdések</h3>
+          <p class="card-text">Teszteld a tudásod a történelmi témakörökből. A teszt végén rögtön látod az eredményed, így könnyebb eldönteni, mit érdemes újra átnézned.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Rövid vázlatok</h3>
+          <p class="card-text">Ismételd át a történelmi korszakokat, eseményeket és szereplőket a tételekhez készült, tömör összefoglalókkal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section app-section screenshots">
+    <div class="container">
+      <h2 class="section-title">Így néz ki a Töri24</h2>
+      <ul class="screen-grid">
+        {screens.map(({ image, alt }) => (
+          <li><img src={`/images/tori24/${image}`} alt={alt} width="480" height="960" loading="lazy" decoding="async" /></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section app-section">
+    <div class="container">
+      <h2 class="section-title">Ingyenes használat, választható reklámmentesség</h2>
+      <p class="section-subtitle">A tananyag és a gyakorlás ingyenes. Az alkalmazás AdMob-hirdetéseket jelenít meg, amelyeket egyszeri alkalmazáson belüli vásárlással végleg eltávolíthatsz. Ezzel a fejlesztést is támogatod. Az aktuális árat a vásárlás jóváhagyása előtt látod.</p>
+      <a href="/tori24/support" class="btn btn-outline">Támogatás és gyakori kérdések</a>
+    </div>
+  </section>
+</Tori24Layout>
+
+<style>
+  .intro {
+    padding-block: var(--space-2xl);
+    background: var(--color-accent-light);
+  }
+
+  .intro-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .intro h1 {
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  @media (max-width: 420px) {
+    .intro h1 {
+      font-size: clamp(var(--text-2xl), 8.1vw, var(--text-3xl));
+    }
+  }
+
+  .app-icon {
+    width: clamp(4.75rem, 16vw, 9rem);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .intro .section-subtitle,
+  .app-section .section-subtitle {
+    margin-bottom: var(--space-lg);
+  }
+
+  .store-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .app-section {
+    padding-block: var(--space-2xl);
+  }
+
+  .app-section .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .screenshots {
+    background: var(--color-surface);
+  }
+
+  .screen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-md);
+  }
+
+  .screen-grid img {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  @media (min-width: 640px) {
+    .intro-inner {
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--space-2xl);
+    }
+
+    .screen-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+  }
+</style>

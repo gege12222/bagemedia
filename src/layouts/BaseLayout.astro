@@ -8,6 +8,8 @@ interface Props {
   description?: string;
   ogTitle?: string;
   ogDescription?: string;
+  ogImage?: string;
+  showTori24Links?: boolean;
 }
 
 const {
@@ -15,6 +17,8 @@ const {
   description = 'BageMedia – Szoftver- és webfejlesztés. Flutter appok, üzleti rendszerek és modern weboldalak.',
   ogTitle,
   ogDescription,
+  ogImage,
+  showTori24Links,
 } = Astro.props;
 
 const siteName = 'BageMedia';
@@ -41,6 +45,8 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <meta property="og:title" content={ogTitle || title} />
     <meta property="og:description" content={ogDescription || description} />
     <meta property="og:url" content={canonicalUrl} />
+    {ogImage && <meta property="og:image" content={new URL(ogImage, siteUrl).href} />}
+    {showTori24Links && <meta property="og:locale" content="hu_HU" />}
 
     <!-- Preconnect for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -56,6 +62,6 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <main id="main" style="flex:1;padding-top:var(--header-height)">
       <slot />
     </main>
-    <Footer />
+    <Footer showTori24Links={showTori24Links} />
   </body>
 </html>

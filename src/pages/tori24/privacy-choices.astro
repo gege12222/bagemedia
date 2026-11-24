@@ -1,0 +1,36 @@
+---
+import Tori24Layout from '../../layouts/Tori24Layout.astro';
+import { tori24 } from '../../data/tori24';
+
+const requestEmail = tori24.privacyEmail || tori24.supportEmail;
+---
+
+<Tori24Layout
+  title="Töri24 adatvédelmi választások"
+  description="A Töri24 hirdetési hozzájárulásának módosítása és visszavonása, adatvédelmi kérelem benyújtása, valamint az iOS és az Android adatvédelmi beállításai."
+>
+  <h2>Hirdetési beállítások az alkalmazásban</h2>
+  <ol>
+    <li>Nyisd meg a Töri24-et az iOS- vagy Android-készülékeden.</li>
+    <li>Az alkalmazás menüjében keresd a hirdetésekhez tartozó adatvédelmi beállítást. Amikor ez a lehetőség elérhető, onnan nyithatod meg a Google UMP adatvédelmi űrlapját.</li>
+    <li>Az űrlapon módosíthatod az elérhető választásokat, vagy visszavonhatod a korábban megadott hozzájárulásodat.</li>
+  </ol>
+  <p>A változtatást a telefonodon, a Töri24-en belül végezheted el. A beállítás elérhetősége függhet a régiótól és az alkalmazás verziójától. Ha nem találod, frissítsd az alkalmazást az áruházból, vagy írj a <a href="/tori24/support#kapcsolat">támogatásnak</a>.</p>
+
+  <h2 id="kerelem">Adatvédelmi kérelem benyújtása</h2>
+  {requestEmail ? (
+    <p>
+      {tori24.privacyEmail ? 'Az adatvédelmi kérelmedet erre a címre küldheted' : 'A Töri24 jelenlegi támogatási címén jelezheted, ha adatvédelmi kérelmet szeretnél benyújtani'}.
+      {' '}<a href={`mailto:${requestEmail}?subject=${encodeURIComponent('Töri24 – Adatvédelmi kérelem')}`}>{requestEmail}</a>
+    </p>
+  ) : <p class="todo"><strong>TODO</strong> – Az adatvédelmi kérelmek fogadására kijelölt elérhetőség.</p>}
+  <p>Írd le, melyik jogodat szeretnéd gyakorolni, és milyen Töri24-használathoz vagy vásárláshoz kapcsolódik a kérelem. Az azonosításhoz kezdetben csak a szükséges adatokat add meg. Jelszót, bankkártyaadatot vagy okmánymásolatot ne küldj a megkeresés részeként.</p>
+  <p>Törlési kérelemnél számít, hogy milyen adatot tartanak nyilván, hol tárolják, és vonatkozik-e rá kötelező megőrzési előírás. Az Apple vagy a Google önállóan kezelt áruházi fiókadatai ügyében az adott szolgáltatóhoz fordulhatsz. A jogaidról és az ügyintézés határidejéről az <a href="/tori24/privacy">adatkezelési tájékoztató</a> ad további információt.</p>
+
+  <h2>Adatvédelem a telefonodon</h2>
+  <ul>
+    <li><strong>iOS.</strong> A Beállítások alkalmazás Adatvédelem és biztonság menüjének Követés pontjában szabályozhatod az alkalmazások tevékenységkövetési engedélyét. <a href="https://support.apple.com/hu-hu/102420">Az Apple útmutatója a követési engedélyekhez</a>.</li>
+    <li><strong>Android.</strong> A Beállítások adatvédelmi vagy hirdetési menüjében kezelheted a hirdetési azonosítót és az elérhető hirdetési beállításokat. A menü neve a készüléktől és a rendszerverziótól függhet. <a href="https://support.google.com/android/answer/13720755?hl=hu">A Google útmutatója a hirdetési beállításokhoz</a>.</li>
+  </ul>
+  <p>A telefon beállításai a készülékszintű engedélyeket vezérlik. A Töri24 hirdetési hozzájárulását az alkalmazás UMP-űrlapján kezelheted.</p>
+</Tori24Layout>

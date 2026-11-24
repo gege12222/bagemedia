@@ -1,0 +1,86 @@
+---
+import Tori24Layout from '../../layouts/Tori24Layout.astro';
+import { tori24 } from '../../data/tori24';
+---
+
+<Tori24Layout
+  title="Töri24 adatkezelési tájékoztató"
+  description="A Töri24 adatkezelési tájékoztató-tervezete az alkalmazás hirdetéseiről, a hozzájárulásról, a vásárlásokról és az adatvédelmi jogokról."
+  draft
+>
+  <p>Ez a tájékoztató a Töri24 iOS- és Android-alkalmazás használatához, a reklámmentesség megvásárlásához és az alkalmazással kapcsolatos megkeresésekhez kötődő adatkezeléseket ismerteti.</p>
+
+  <h2>1. Ki az adatkezelő?</h2>
+  <p class="todo"><strong>TODO</strong> – A Töri24 adatkezelőjének teljes neve vagy hivatalos megnevezése, címe, adatvédelmi elérhetősége és az adatvédelmi tisztviselő elérhetősége, ha alkalmazandó.</p>
+
+  <h2>2. Milyen adatok kerülhetnek az üzemeltetőhöz?</h2>
+  <p>Ha e-mailben írsz a Töri24 támogatásának, az üzemeltető megkapja a feladó e-mail-címét, a levél szövegét és a csatolmányokat. Hibabejelentésnél önként megadhatod az eszköz típusát, az operációs rendszer és az alkalmazás verzióját. Vásárlási ügyben az áruházi rendelésazonosító segítheti az ügy azonosítását.</p>
+  <p class="todo"><strong>TODO</strong> – Ellenőrizni kell, milyen alkalmazás-, jogosultsági és naplóadatokat lát vagy tárol közvetlenül az üzemeltető, illetve mi marad kizárólag a készüléken. Rögzíteni kell az esetleges további adatforrásokat, a kötelező és önkéntes adatszolgáltatást, valamint az elmaradás következményeit.</p>
+
+  <h2>3. Az adatkezelés céljai és jogalapjai</h2>
+  <ul>
+    <li>Kapcsolattartás, hibajelzések, vásárlási panaszok és érintetti kérelmek kezelése.</li>
+    <li>Hirdetések kiszolgálása, a hirdetési teljesítmény mérése és a visszaélések elleni védelem.</li>
+    <li>Hirdetési adatvédelmi választások rögzítése és alkalmazása.</li>
+    <li>A reklámmentesség aktiválása, ellenőrzése és visszaállítása.</li>
+  </ul>
+  <p>A hozzájáruláson alapuló műveletek jogalapja a GDPR 6. cikk (1) bekezdés a) pontja. A végleges tájékoztatónak célonként kell meghatároznia, milyen jogalap melyik műveletre vonatkozik.</p>
+  <p class="todo"><strong>TODO</strong> – Az üzemeltetői és a szolgáltatói műveletek jogalapjai célonként, a hozzájárulást igénylő műveletek köre és az esetleges jogos érdekek megnevezése.</p>
+
+  <h2>4. Hirdetések a Google AdMob szolgáltatásával</h2>
+  <p>A Töri24 ingyenes változatában a Google AdMob biztosítja a hirdetéseket. A hirdetési adatok egy részét a Google mobilhirdetési SDK-ja az alkalmazásból közvetlenül a Google felé továbbíthatja. A hirdetési mód és az adatok köre függhet az SDK beállításaitól, a régiótól, az eszköz beállításaitól és az alkalmazásban megadott választásoktól.</p>
+  <p>A nem személyre szabott hirdetések kiszolgálásához is kapcsolódhat adatkezelés, például a megjelenítések mérése vagy a visszaélések megelőzése. A készüléken tárolt információk használatának feltételeit külön is ellenőrizni kell.</p>
+
+  <h2>5. Hirdetési azonosítók és technikai adatok</h2>
+  <p>A Google dokumentációja szerint az SDK kezelhet IP-címet, hirdetési vagy más eszközazonosítót, hirdetésmegtekintési és kattintási adatokat, alkalmazásinterakciókat, valamint teljesítmény- és diagnosztikai adatokat. Az IP-címből hozzávetőleges hely állapítható meg. Az Android hirdetési azonosítójához vagy az iOS IDFA azonosítójához való hozzáférés a platform szabályaitól, az engedélyektől és az SDK beállításaitól függ.</p>
+  <p><a href="https://developers.google.com/admob/android/privacy/play-data-disclosure">A Google SDK adatközlése Androidra</a> · <a href="https://developers.google.com/admob/ios/privacy/data-disclosure">A Google SDK adatközlése iOS-re</a></p>
+  <p class="todo"><strong>TODO</strong> – Mindkét kiadási verzió SDK-verziói és tényleges adatforgalma, beleértve az azonosítókat, hirdetési partnereket és a diagnosztikai adatokat.</p>
+
+  <h2>6. Hozzájárulás és visszavonás</h2>
+  <p>A Google User Messaging Platform (UMP) jelenítheti meg a hirdetésekhez kapcsolódó adatvédelmi űrlapot és rögzítheti a választásodat. Amikor a beállítás elérhető, az alkalmazáson belül újranyithatod az űrlapot, megváltoztathatod a döntésedet vagy visszavonhatod a hozzájárulásodat. A visszavonás a korábbi, jogszerű adatkezelést nem érinti.</p>
+  <p><a href="/tori24/privacy-choices">Útmutató az adatvédelmi választásokhoz</a> · <a href="https://developers.google.com/admob/flutter/privacy">A Google UMP ismertetője</a></p>
+  <p class="todo"><strong>TODO</strong> – Az éles hozzájárulási üzenet, a választások tárolása és továbbítása, valamint a visszavonás után érvényesülő hirdetési beállítások platformonként.</p>
+
+  <h2>7. Vásárlás az alkalmazáson belül és RevenueCat</h2>
+  <p>Androidon a Google Play Billing, iOS-en az Apple alkalmazáson belüli vásárlási rendszere bonyolítja a fizetést. Az áruházi fiókhoz, fizetéshez és számlázáshoz szükséges adatokat az adott áruház kezeli a saját feltételei szerint.</p>
+  <p>A Töri24 a RevenueCatet használja a vásárlási jogosultság ellenőrzésére és a reklámmentesség visszaállítására. Ehhez a szolgáltatás a konfigurációtól függően alkalmazásfelhasználói azonosítót, termékazonosítót, tranzakciós adatot vagy áruházi nyugtát, illetve a jogosultság állapotát kezelheti.</p>
+  <p class="todo"><strong>TODO</strong> – A platformonként használt ügyfélazonosító, a ténylegesen továbbított mezők, az üzemeltető által elérhető vásárlási adatok és az esetleges további integrációk.</p>
+
+  <h2>8. Címzettek és szolgáltatók</h2>
+  <ul>
+    <li>Google – AdMob, UMP és Androidon Google Play Billing. <a href="https://policies.google.com/privacy?hl=hu">A Google adatvédelmi irányelvei</a>.</li>
+    <li>Apple – az iOS-es vásárlási tranzakciók kezelése. <a href="https://www.apple.com/legal/privacy/hu/">Az Apple adatvédelmi szabályzata</a>.</li>
+    <li>RevenueCat – a reklámmentességhez tartozó jogosultság kezelése. <a href="https://www.revenuecat.com/privacy">A RevenueCat adatvédelmi irányelvei</a>.</li>
+  </ul>
+  <p class="todo"><strong>TODO</strong> – A szerződő szolgáltatói jogalanyok és adatkezelői vagy adatfeldolgozói szerepeik, az e-mailes támogatás szolgáltatója, valamint a további címzettek és szükség szerint az adatfeldolgozói szerződések.</p>
+
+  <h2>9. Adattovábbítás az EGT-n kívülre</h2>
+  <p>A szolgáltatók az Európai Gazdasági Térségen (EGT) kívül is feldolgozhatnak adatokat. Az adott továbbítás jogszerűségéhez alkalmazható például megfelelőségi határozat vagy megfelelő garanciát nyújtó általános szerződési feltétel. A RevenueCat a szerződéses feltételeit az <a href="https://www.revenuecat.com/dpa">adatfeldolgozási megállapodásában</a> ismerteti.</p>
+  <p class="todo"><strong>TODO</strong> – A tényleges célországok, az egyes továbbítások jogszerű mechanizmusa és a garanciák másolatának elérhetősége.</p>
+
+  <h2>10. Meddig őrzik meg az adatokat?</h2>
+  <p>Az üzemeltetőnél megjelenő levelezésre, a vásárlási ügyekre és a szolgáltatók rendszereiben tárolt adatokra eltérő szabályok vonatkozhatnak.</p>
+  <p class="todo"><strong>TODO</strong> – Megőrzési idő vagy annak meghatározási szempontja a támogatási, vásárlási, hozzájárulási és hirdetési adatokhoz, a törlési folyamat és a szolgáltatói beállítások ellenőrzése.</p>
+
+  <h2>11. A jogaid és a kérelmek kezelése</h2>
+  <p>A GDPR feltételei szerint kérhetsz tájékoztatást és hozzáférést, helyesbítést, törlést vagy korlátozást. Az alkalmazandó esetekben kérheted adataid hordozását, tiltakozhatsz az adatkezelés ellen, vagy visszavonhatod a hozzájárulásodat. A törlési kérelem elbírálása attól függ, hol tárolják az adatot és fennáll-e kötelező megőrzési ok.</p>
+  <p>A GDPR szerint az adatkezelő főszabály szerint a beérkezéstől számított egy hónapon belül válaszol. Szükség esetén a határidő további két hónappal hosszabbítható, amiről az első hónapon belül tájékoztatást kell adni. Megalapozott kétség esetén a kérelem teljesítéséhez szükséges mértékben kérhető a személyazonosság igazolása.</p>
+  <p><a href="/tori24/privacy-choices#kerelem">Adatvédelmi kérelem benyújtása</a> · <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=hu">A GDPR magyar szövege</a></p>
+
+  <h2>12. Panasz és jogorvoslat</h2>
+  <p>Adatvédelmi panasszal Magyarországon a Nemzeti Adatvédelmi és Információszabadság Hatósághoz (NAIH) fordulhatsz. A GDPR szerint a szokásos tartózkodási helyed, a munkahelyed vagy a feltételezett jogsértés helye szerinti illetékes uniós hatóságnál is panaszt tehetsz. Bírósági jogorvoslatot is igénybe vehetsz.</p>
+  <p><a href="https://www.naih.hu/adatkezeles-erintettjekent-fordulok-a-hatosaghoz/vizsgalati-eljaras-gdpr">A NAIH panaszbenyújtási tájékoztatója</a> · <a href="https://www.naih.hu/kozerdeku-adatok/1-szervezeti-szemelyzeti-adatok/1-1-kapcsolat-elerhetoseg">A NAIH elérhetősége</a></p>
+
+  <h2>13. Kiskorú felhasználók</h2>
+  <p>A Töri24-et 18 év alatti diákok is használhatják. A GDPR 8. cikke a gyermeknek közvetlenül kínált online szolgáltatás hozzájáruláson alapuló adatkezelésénél főszabályként 16 éves korhatárt határoz meg. Ez alatt a szülői felügyeletet gyakorló személy hozzájárulása vagy jóváhagyása szükséges. Egyes tagállamok alacsonyabb korhatárt alkalmazhatnak, amely legalább 13 év.</p>
+  <p class="todo"><strong>TODO</strong> – A kiskorúakra vonatkozó éles AdMob- és UMP-beállítások, a releváns országokban alkalmazandó korhatár és szükség esetén a szülői jóváhagyás ellenőrzésének módja.</p>
+
+  <h2>14. Kapcsolat</h2>
+  <p>Az alkalmazás nyilvános támogatási elérhetősége a <a href="/tori24/support#kapcsolat">Támogatás</a> oldalon található.
+    {tori24.privacyEmail && <> Az adatvédelmi e-mail-cím <a href={`mailto:${tori24.privacyEmail}`}>{tori24.privacyEmail}</a>.</>}
+    Adatvédelmi ügyhöz használd a <a href="/tori24/privacy-choices#kerelem">kérelmekről szóló útmutatót</a>.</p>
+
+  <h2>15. Hatálybalépés és módosítás</h2>
+  <p>A végleges tájékoztató és a későbbi változatok ezen az oldalon lesznek elérhetők. Az adatkezelést érintő lényeges változásokról a hatálybalépés előtt az alkalmazandó szabályok szerint kell tájékoztatást adni.</p>
+  <p class="todo"><strong>TODO</strong> – Hatálybalépés, a változat dátuma és az alkalmazáson belüli értesítés csatornája, ha releváns.</p>
+</Tori24Layout>

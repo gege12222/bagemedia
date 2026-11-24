@@ -1,0 +1,62 @@
+---
+import Tori24Layout from '../../layouts/Tori24Layout.astro';
+import { tori24 } from '../../data/tori24';
+
+const { supportEmail } = tori24;
+---
+
+<Tori24Layout
+  title="Töri24 támogatás"
+  description="A Töri24 ügyfélszolgálata. Jelezz alkalmazás- vagy tananyaghibát, és nézd meg, hogyan állíthatod vissza a vásárlásodat iOS-en vagy Androidon."
+>
+  <p>Írj nekünk, ha elakadtál a Töri24 használatában, hibát találtál vagy segítséget kérsz egy vásárláshoz.</p>
+
+  <h2 id="kapcsolat">Kapcsolat és hibabejelentés</h2>
+  {supportEmail ? (
+    <p>A Töri24 támogatási e-mail-címe <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.</p>
+  ) : <p class="todo"><strong>TODO</strong> – A Töri24 támogatási e-mail-címe.</p>}
+  <ul>
+    <li>
+      <strong>Alkalmazáshiba.</strong> Írd meg, mi történt, mit vártál, és hogyan lehet előidézni a hibát. Ha tudod, add meg a telefon típusát, a rendszer és a Töri24 verzióját.
+      {supportEmail && <a href={`mailto:${supportEmail}?subject=${encodeURIComponent('Töri24 – Alkalmazáshiba')}`}>Alkalmazáshiba bejelentése</a>}
+    </li>
+    <li>
+      <strong>Tananyaghiba.</strong> Add meg az érettségi szintet, a témakört és a kérdést vagy a vázlat címét. Írd le, mit javítanál. Ha van forrásod, azt is csatolhatod.
+      {supportEmail && <a href={`mailto:${supportEmail}?subject=${encodeURIComponent('Töri24 – Tananyaghiba')}`}>Tananyaghiba bejelentése</a>}
+    </li>
+  </ul>
+
+  <h2 id="visszaallitas">Vásárlás visszaállítása</h2>
+  <p>Ha korábban már megvetted a reklámmentességet, újratelepítés vagy telefoncsere után az eredeti áruházi fiókkal próbáld visszaállítani.</p>
+  <h3>iOS</h3>
+  <ol>
+    <li>Ellenőrizd, hogy ugyanazt az Apple-fiókot használod az App Store-ban, amellyel vásároltál.</li>
+    <li>Nyisd meg a Töri24-et, és keresd az alkalmazáson belüli vásárlás visszaállításának lehetőségét. Ha elérhető, indítsd el a visszaállítást.</li>
+  </ol>
+  <p><a href="https://support.apple.com/hu-hu/108096">Az Apple visszaállítási útmutatója</a></p>
+  <h3>Android</h3>
+  <ol>
+    <li>A Google Play Áruházban válaszd ki azt a Google-fiókot, amellyel vásároltál.</li>
+    <li>Nyisd meg újra a Töri24-et internetkapcsolattal. Ha az alkalmazás felkínálja a visszaállítást, indítsd el onnan.</li>
+  </ol>
+  <p>Ha a reklámmentesség továbbra sem aktív, írj a <a href="#kapcsolat">támogatásnak</a>. Add meg, melyik áruházban és körülbelül mikor vásároltál. Az eredeti vásárláshoz tartozó rendelésazonosító segíthet. Jelszót vagy bankkártyaadatot ne küldj. A visszaállítás az eredeti áruházhoz kötődik. Az iOS és Android közötti átvitelre nincs garancia.</p>
+
+  <h2>Gyakori kérdések</h2>
+  <h3>Ingyenes a Töri24?</h3>
+  <p>Igen. A tananyagok és a gyakorlás ingyenesek. Az ingyenes alkalmazás hirdetéseket jelenít meg.</p>
+  <h3>Melyik érettségi szinthez használható?</h3>
+  <p>A Töri24 közép- és emelt szintű történelemérettségihez is használható.</p>
+  <h3>Hogyan kapcsolhatom ki a reklámokat?</h3>
+  <p>A Töri24 alkalmazáson belül válaszd a reklámmentesítést. Az áruház a jóváhagyás előtt mutatja a fizetendő árat.</p>
+  <h3>A reklámmentesség egyszeri vásárlás?</h3>
+  <p>Igen, egyetlen fizetéssel végleg eltávolíthatod a hirdetéseket, ismétlődő díj nélkül.</p>
+  <h3>Hogyan állíthatom vissza a vásárlásomat?</h3>
+  <p>Az eredeti áruházi fiókkal kövesd a <a href="#visszaallitas">vásárlás-visszaállítás iOS-es vagy androidos lépéseit</a>.</p>
+  <h3>Hol jelezhetem, ha hibás tananyagot találok?</h3>
+  <p>Írj a <a href="#kapcsolat">támogatási címre</a>, és add meg a témakört és az érintett tananyagrészt.</p>
+  <h3>Hogyan módosíthatom az adatvédelmi hozzájárulásomat?</h3>
+  <p>Az alkalmazásban elérhető hirdetési adatvédelmi beállításnál. A részletek az <a href="/tori24/privacy-choices">Adatvédelmi választások</a> oldalon olvashatók.</p>
+
+  <h2>Adatvédelem és feltételek</h2>
+  <p>Adatvédelmi ügyben az <a href="/tori24/privacy-choices#kerelem">adatvédelmi kérelmek útmutatóját</a> használd. Olvasd el az <a href="/tori24/privacy">adatkezelési tájékoztatót</a> és a <a href="/tori24/terms">felhasználási feltételeket</a>.</p>
+</Tori24Layout>

@@ -1,8 +1,18 @@
 ---
+import { tori24Links } from '../data/tori24';
+
+const { showTori24Links = false } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
+  {showTori24Links && (
+    <nav class="container tori24-footer" aria-label="Töri24 lábléc">
+      <ul class="footer-inner">
+        {tori24Links.map(({ href, label }) => <li><a href={href} class="footer-link">{label}</a></li>)}
+      </ul>
+    </nav>
+  )}
   <div class="container footer-inner">
     <a href="/" class="footer-logo">Bage<strong>Media</strong></a>
     <span class="footer-sep">·</span>
@@ -19,6 +29,17 @@ const year = new Date().getFullYear();
 </footer>
 
 <style>
+  .tori24-footer {
+    margin-bottom: var(--space-md);
+  }
+
+  .tori24-footer .footer-link {
+    display: inline-block;
+    padding-block: var(--space-sm);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
   .footer {
     background: var(--color-dark);
     color: #888;

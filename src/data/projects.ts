@@ -1,5 +1,8 @@
+import { tori24 } from './tori24';
+
 export interface Project {
   slug: string;
+  pagePath?: string;
   title: string;
   shortDescription: string;
   category: 'client' | 'apps' | 'web';
@@ -84,44 +87,14 @@ export const projects: Project[] = [
   // ── SAJÁT APPOK ──
   {
     slug: 'tori24',
-    title: 'töri24 – történelem érettségi felkészítő app',
-    shortDescription: '1000+ kérdés, kvíz mód, térkép mód, emelt/közép, vázlatok témakörökre bontva.',
+    pagePath: tori24.path,
+    title: 'Töri24 – történelemérettségi-felkészítő app',
+    shortDescription: 'Gyakorlókérdések és rövid vázlatok a közép- és emelt szintű történelemérettségihez.',
     category: 'apps',
     status: 'Live',
     platforms: ['Android', 'iOS'],
     techTags: ['Flutter'],
-    coverImage: '/images/projects/tori24.png',
-    externalLinks: {
-      appStore: 'APP_STORE_LINK',
-      googlePlay: 'GOOGLE_PLAY_LINK',
-    },
-    downloads: {
-      appStore: '500+',
-      googlePlay: '1000+',
-    },
-    caseStudy: {
-      summary:
-        'Mobil alkalmazás, amely segíti a középiskolásokat a történelem érettségire való felkészülésben – strukturált kérdésbankkal, interaktív kvíz módokkal és tömör vázlatokkal.',
-      problem:
-        'A történelem érettségire való felkészülés során a diákok nehezen rendszerezik az anyagot. A tankönyvek terjedelmesek, a jegyzetelés időigényes, és nehéz felmérni, hol tartanak a felkészülésben. Hiányzott egy mobilra optimalizált, játékos tanulóeszköz.',
-      solutionBullets: [
-        '1000+ kérdés közép és emelt szintre, témakörökre bontva',
-        'Kvíz mód: véletlenszerű vagy tematikus tesztek azonnali kiértékeléssel',
-        'Térkép mód: interaktív történelmi térképes feladatok',
-        'Vázlatok: tömör, áttekinthető összefoglalók minden témakörhöz',
-        'Haladás nyomon követése és statisztikák',
-        'Offline működés – nincs szükség internetre a tanuláshoz',
-      ],
-      role: 'Egyedüli fejlesztőként terveztem és valósítottam meg a teljes alkalmazást: a kérdésbank összeállításától a UX tervezésen és implementáción át a store publishingig.',
-      stack: [
-        'Flutter (cross-platform mobil)',
-        'Dart',
-        'SQLite (helyi adattárolás)',
-        'Material Design 3',
-      ],
-      results:
-        'Az alkalmazás elérhető az App Store-ban és a Google Play-en. Pozitív visszajelzések a felhasználóktól, különösen a kvíz mód és a vázlatok tekintetében. A rendszeres frissítések új kérdésekkel és funkciókkal bővítik az appot.',
-    },
+    coverImage: tori24.coverImage,
   },
   {
     slug: 'courseforge',
